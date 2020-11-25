@@ -1,16 +1,1 @@
 0x30， 0x0d，0x0a                           开锁 --返回xx xx +OK
-0x31， 0x0d，0x0a                           关锁--返回xx xx +OK
-0x32 ，0x0d，0x0a                           读adc --返回adc高位，adc低位+OK
-0x33， sector，0x0d，0x0a               擦除--返回OK                   sector :第几个扇区
-0x34 ，page，data，0x0d，0x0a       写数据--返回OK	 page：写到第几个page，一个page16字节。
-0x35 ，page，0x0d，0x0a                  读数据--返回data（16字节）+ OK
-
-buf[0]=0x30,
-buf[1]=0x0d,
-buf[2]=0x0a.
-i2c_master_send（0xa0，buf,3）
-while(BUSY == 0);
-i2c_master_receive（0xa0，buf,4）
-
-if(buf[2]=='O'&&buf[3]=='K')
-..............
